@@ -1,0 +1,173 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *prev=NULL;
+struct node *head=NULL;
+struct node *new_node;
+struct node *ptr;
+void create_node()
+{
+    new_node=(struct node*)malloc(sizeof(struct node));
+    printf("Enter data :\n");
+    scanf("%d",&new_node->data);
+    new_node->next=NULL;
+}
+void insertatlast()
+{
+    create_node();  
+    if(head==NULL)
+    head=new_node;
+    else
+    {
+        for(ptr=head;ptr->next!=NULL;ptr=ptr->next);
+        ptr->next=new_node;
+    }
+}
+void display()
+{
+    ptr=head;
+    if(head==NULL)
+        printf("List is empty\n");
+    else{
+      while(ptr!=NULL)
+      {
+        printf("%d ",ptr->data);
+        ptr=ptr->next;
+      }
+      printf("\n");
+    }
+}
+void add_beg()
+{
+    create_node();
+    if(head==NULL)
+    new_node->next=NULL;
+    else
+    new_node->next=head;
+    head=new_node;
+}
+int count()
+{
+    ptr=head;
+    int c=0;
+    while(ptr!=NULL)
+    {
+        c++;
+        ptr=ptr->next;
+    }
+    return c;
+}
+void add_after(int p)
+{
+    if(p==1)
+    add_beg();
+    else if(p==count())
+    insertatlast();
+    else if(p<1||p>count())
+    printf("Invalid position");
+    else{
+        create_node();
+        ptr=head;
+        for(int i=1;i<p-1;i++)
+        {
+            ptr=ptr->next;
+        }
+        new_node->next=ptr->next;
+        ptr->next=new_node;
+    }
+}
+int deletefrombeg()
+{
+    int v=0;
+    if(head==NULL)
+    return -1;
+    else
+    {
+        ptr=head;
+        v=ptr->data;
+        head=ptr->next;
+        free(ptr);
+        return v;
+    }
+}
+int deletefromend()
+{
+    int v;
+    if(head==NULL)
+    return -1;
+    else
+    {
+        for(ptr=head;ptr->next->next!=NULL;ptr=ptr->next);
+        v=ptr->next->data;
+        free(ptr->next);
+        ptr->next=NULL;
+        return v;
+    }
+}
+void reverse()
+{
+    struct node *next=NULL;
+    ptr=head;
+    while(ptr!=NULL)
+    {
+        next=ptr->next;
+        ptr->next=prev;
+        prev=ptr;
+        ptr=next;
+    }
+    head=prev;
+}
+int deletefromany(int p)
+{
+    int v;
+    ptr=head;
+    if(head==NULL)
+    return -1;
+    else{
+        for(int i=1;i<p-1;i++)
+        ptr=ptr->next;
+        v=ptr->next->data;
+        struct node *nt=ptr->next->next;
+        free(ptr->next);
+        ptr->next=nt;
+        return v;
+    }
+}
+int main()
+{
+    int i;
+    for(i=1;i<=5;i++)
+    insertatlast();
+    display();
+    add_beg();
+    display();
+    add_after(3);
+    display();
+    int n=deletefrombeg();
+    if(n==-1)
+    printf("List empty\n");
+    else
+    printf("deleted element is %d\n",n);
+    display();
+    int a=deletefromend();
+    if(a==-1)
+    printf("List empty\n");
+    else
+    printf("deleted element is %d\n",a);
+    display();
+    a=deletefromany(3);
+    if(a==-1)
+    printf("List empty\n");
+    else
+    printf("deleted element is %d\n",a);
+    display();
+    printf("Original list :\n");
+    display();
+    printf("Reversed list :\n");
+    reverse();
+    display();
+}
