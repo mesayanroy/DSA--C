@@ -2,11 +2,6 @@
 
 Welcome to my **Data Structures in C** repository! This project is a collection of fundamental data structure implementations using the C programming language. It is designed to help learners understand core concepts through clear, beginner-friendly code.
 
-> ⚠️ **Work in Progress**  
-> I’m adding new code **daily**, so stay tuned for regular updates!
-
----
-
 ## 🚀 Contents
 
 - 🔹 Arrays(Kadane's algo updated)
