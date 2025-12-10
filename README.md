@@ -40,7 +40,7 @@ Welcome to my **Data Structures in C** repository! This project is a collection 
 
 ---
 
-## 🧠 What You'll Learn
+##  What You'll Learn
 
 - How core data structures work under the hood
 - Writing clean and efficient C code
