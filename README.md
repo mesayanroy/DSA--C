@@ -17,7 +17,7 @@ Welcome to my **Data Structures in C** repository! This project is a collection 
 
 ## 💻 Language
 
-- C Programming Language =>
+- C Programming Language
 
 ---
 ## 📁 Folder Structure
