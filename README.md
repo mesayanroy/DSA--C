@@ -1,6 +1,6 @@
 #  Data Structures in C 
 
-Welcome to my **Data Structures in C** repository! This project is a collection of fundamental data structure implementations using the C programming language. It is designed to help learners understand core concepts through clear, beginner-friendly code.
+Welcome to my **Data Structures and Algorithim in C** repository! This project is a collection of fundamental data structure implementations using the C programming language. It is designed to help learners understand core concepts through clear, beginner-friendly code.
 
 ##  Contents
 
