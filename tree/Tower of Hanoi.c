@@ -22,8 +22,8 @@ int main() {
     return 0;
 }
 
-sample output
-/*
+/*sample output
+
 Move disk 1 from A to C
 Move disk 2 from A to B
 Move disk 1 from C to B
@@ -31,4 +31,13 @@ Move disk 3 from A to C
 Move disk 1 from B to A
 Move disk 2 from B to C
 Move disk 1 from A to C
+
+Code understanding:
+
+If n == 1:
+    Move disk from source to destination
+Else:
+    1. Move n-1 disks from source to auxiliary
+    2. Move nth disk from source to destination
+    3. Move n-1 disks from auxiliary to destination
 */
